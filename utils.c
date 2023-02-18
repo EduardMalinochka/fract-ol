@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:50 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/08 17:50:15 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:16:27 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ void	swap_int(int *i, int *j)
 	*j = tmp;
 }
 
-int	closee(int keycode, t_vars *vars)
+int	quit(int keycode, t_vars *vars)
 {
-	exit(EXIT_SUCCESS);
+	write(1, "[Mandelbort],[Julia]\n", 21);
+	exit(0);
 	return (0);
 }
 int	close_program(int key, t_vars *vars) //don't forget to repair this function
@@ -41,9 +42,9 @@ int	close_program(int key, t_vars *vars) //don't forget to repair this function
 	return (0);
 }
 
-void	swtch_draw(t_vars *vars)
+void	choose_draw(t_vars *vars)
 {
-	if (vars->swtch == 0)
+	if (vars->fig == 'J')
 		draw(vars);
 	else
 		draw2(vars);
@@ -55,12 +56,12 @@ void	set_fract(char **str, t_vars *vars)
 	{
 		vars->selected_r = vars->julia_r[0];
 		vars->selected_i = vars->julia_i[0];
-		vars->swtch = 0;
+		vars->fig = 'J';
 		draw(vars);
 	}
 	else if (ft_strncmp(str[1], "Mandelbrot", 11) == 0)
 	{
-		vars->swtch = 1;
+		vars->fig = 'M';
 		draw2(vars);
 	}
 }

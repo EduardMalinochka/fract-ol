@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:35 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/08 17:46:05 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:16:47 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_image
 typedef struct s_vars
 {
 	t_image	img;
+	char	fig;
 	double	x;
 	double	y;
 	double	x_val;
@@ -62,7 +63,6 @@ typedef struct s_vars
 	double	selected_r;
 	double	selected_i;
 	int		color;
-	int		swtch;
 	int		c1;
 	int		c2;
 	int		c3;
@@ -75,7 +75,7 @@ int		get_g(int trgb);
 int		get_b(int trgb);
 void	c_calc(t_vars *vars, int *x, int *y);
 int		create_trgb(int t, int r, int g, int b);
-int		closee(int keycode, t_vars *vars); // delete?
+int		quit(t_vars *vars); // delete?
 int	close_program(int key, t_vars *vars);
 void	black_screen(t_vars *vars);
 void	draw(t_vars *vars);
@@ -87,7 +87,7 @@ int		key(int keycode, t_vars *vars);
 void	color_chng(t_vars *vars, int i);
 void	swap_int(int *i, int *j);
 void	colorful_fract(t_vars *vars);
-void	swtch_draw(t_vars *vars);
+void	choose_draw(t_vars *vars);
 void	set_fract(char **str, t_vars *vars);
 void	draw(t_vars *vars);
 void	draw2(t_vars *vars);

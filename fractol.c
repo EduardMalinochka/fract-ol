@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:29 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/08 17:37:30 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:49:18 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	zoom(int keycode, int x, int y, t_vars *vars)
 {
-	if (keycode == MOUSE_SCROLL_UP)
+	if (keycode == 5)
 	{
 		vars->vertical_swift += ((x - (WIDTH / 2)) / (vars->zoom * 3));
 		vars->horizontal_swift += ((y - (HEIGHT / 2)) / (vars->zoom * 3));
 		vars->zoom *= 1.5;
-		swtch_draw(vars);
+		choose_draw(vars);
 	}
-	else if (keycode == MOUSE_SCROLL_DOWN)
+	else if (keycode == 4)
 	{
 		vars->vertical_swift -= ((x - (WIDTH / 2)) / (vars->zoom * 3));
 		vars->horizontal_swift -= ((y - (HEIGHT / 2)) / (vars->zoom * 3));
 		vars->zoom *= 2.0 / 3.0;
-		swtch_draw(vars);
+		choose_draw(vars);
 	}
 	return (0);
 }
@@ -48,14 +48,8 @@ int	main(int ac, char**av)
 			mlx_loop(vars.img.mlx);
 		}
 		else
-		{
-			write(1, "[Mandelbort],[Julia]\n", 21);
-			closee(0, &vars);
-		}
+			quit(&vars);
 	}
 	else
-	{
-		write(1, "[Mandelbort],[Julia]\n", 21);
-		closee(0, &vars);
-	}
+		quit(&vars);
 }
