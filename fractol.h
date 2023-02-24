@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:35 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 13:34:54 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:43:47 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void		draw_julia(t_vars *vars);
 void		draw_mandel(t_vars *vars);
 int			f1(int i, t_vars *vars);
 int			f2(int i, t_vars *vars);
-int			move(int keycode, t_vars *vars);
+void		move(int keycode, t_vars *vars);
 int			key(int keycode, t_vars *vars);
 void		color_change(t_vars *vars, int i);
 void		swap_int(int *i, int *j);

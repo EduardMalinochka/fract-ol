@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:50 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 13:03:05 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:52:57 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@ void	swap_int(int *i, int *j)
 
 int	quit(t_vars *vars)
 {
-	write(1, "[Mandelbort],[Julia]\n", 21);
+	ft_putendl_fd("Availiable fractals are:", 1);
+	ft_putendl_fd("Julia or Mandelbrot", 1);
+	ft_putendl_fd("Make sure you've typed correctly", 1);
+	ft_putendl_fd("You zoom with the mouse, move with the arrows", 1);
+	ft_putendl_fd("C button allows you shift the color", 1);
+	ft_putendl_fd("R button will restore you to the starting point", 1);
+	ft_putendl_fd("You can switch between Julia Sets via A and D buttons", 1);
+	ft_putendl_fd("Press ESC to quit", 1);
 	exit(0);
 	return (0);
 }

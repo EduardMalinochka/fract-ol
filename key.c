@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:42 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 13:38:45 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:44:05 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	colorful_fract(t_vars *vars)
 	choose_draw(vars);
 }
 
-int	move(int keycode, t_vars *vars)
+void	move(int keycode, t_vars *vars)
 {
 	if (keycode == 123)
 	{
@@ -56,7 +56,6 @@ int	move(int keycode, t_vars *vars)
 		vars->horizontal_swift -= 100 / vars->zoom;
 		choose_draw(vars);
 	}
-	return (1);
 }
 
 void julia_swap(int keycode, t_vars *vars)
