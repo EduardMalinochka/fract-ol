@@ -6,13 +6,13 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:38 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/08 15:15:15 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:29:15 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_juliari(t_vars *vars)
+void	julia_complex_list(t_vars *vars)
 {
 	vars->julia_r[0] = 0.285;
 	vars->julia_i[0] = 0.01;
@@ -61,5 +61,5 @@ void	init_vars(t_vars *vars)
 	vars->img.mlx = mlx_init();
 	vars->img.win = mlx_new_window(vars->img.mlx, WIDTH, HEIGHT, "Fract-ol");
 	init_img(vars);
-	init_juliari(vars);
+	julia_complex_list(vars);
 }

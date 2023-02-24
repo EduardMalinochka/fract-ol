@@ -6,18 +6,16 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:42 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 12:20:56 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:29:44 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-#include <stdio.h>
 int	key(int keycode, t_vars *vars)
 {
 	static int	index;
 
-	printf("%d\n", keycode);
 	if (keycode >= 123 && keycode <= 126)
 		move(keycode, vars);
 	if (keycode == 12)

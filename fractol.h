@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:35 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 12:18:11 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:33:22 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ void		swap_int(int *i, int *j);
 void		colorful_fract(t_vars *vars);
 void		choose_draw(t_vars *vars);
 void		set_fract(char **str, t_vars *vars);
-// void		draw(t_vars *vars);
-// void		draw_mandel(t_vars *vars);
 void		init__i(t_vars *vars);
 int			ft_strcmp(char *s1, char *s2);
 int			zoom(int keycode, int x, int y, t_vars *vars);

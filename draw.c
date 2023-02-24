@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:23 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 12:18:11 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:34:00 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	draw_mandel(t_vars *vars)
 		0, 0);
 }
 
-void	draw_julia(t_vars *f)
+void	draw_julia(t_vars *vars)
 {
 	int	x;
 	int	y;
@@ -77,23 +77,23 @@ void	draw_julia(t_vars *f)
 	x = -1;
 	y = -1;
 	i = 0;
-	black_screen(f);
+	black_screen(vars);
 	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 		{
-			f->x_val = ((x - WIDTH / 2.0) / f->zoom) + f->vertical_swift;
-			f->y_val = ((y - HEIGHT / 2.0) / f->zoom) + f->horizontal_swift;
-			i = func(f);
-			color_change(f, i);
-			if ((f->x_val * f->x_val + f->y_val * f->y_val) < 4)
-				put_pixel_in_img(f, x, y, create_trgb(0, 0, 0, 0));
+			vars->x_val = ((x - WIDTH / 2.0) / vars->zoom) + vars->vertical_swift;
+			vars->y_val = ((y - HEIGHT / 2.0) / vars->zoom) + vars->horizontal_swift;
+			i = func(vars);
+			color_change(vars, i);
+			if ((vars->x_val * vars->x_val + vars->y_val * vars->y_val) < 4)
+				put_pixel_in_img(vars, x, y, create_trgb(0, 0, 0, 0));
 			else
-				put_pixel_in_img(f, x, y, create_trgb(0, f->c1, f->c2, f->c3));
+				put_pixel_in_img(vars, x, y, create_trgb(0, vars->c1, vars->c2, vars->c3));
 		}
 	}
-	mlx_put_image_to_window(f->img.mlx, f->img.win, f->img.image, 0, 0);
+	mlx_put_image_to_window(vars->img.mlx, vars->img.win, vars->img.image, 0, 0);
 }
 
 void	black_screen(t_vars *vars)
