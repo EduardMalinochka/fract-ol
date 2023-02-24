@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:05 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/18 18:29:04 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:18:11 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	f2(int i, t_vars *vars)
 		return (i * (255.0 / vars->iteras) - 122);
 }
 
-void	color_chng(t_vars *vars, int i)
+void	color_change(t_vars *vars, int i)
 {
 	vars->c1 = f1(i, vars);
 	vars->c2 = f2(i, vars);

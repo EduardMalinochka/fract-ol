@@ -6,27 +6,27 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:35 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/18 20:16:47 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:18:11 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# include "mlxlib/mlx.h"
 # include "libft/libft.h"
-# include <math.h>
+# include "mlxlib/mlx.h"
 # include <fcntl.h>
-# include <stdlib.h>
+# include <math.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
-# define MOUSE_SCROLL_UP	4
-# define MOUSE_SCROLL_DOWN	5
-# define WIDTH				1280
-# define HEIGHT				720
+# define MOUSE_SCROLL_UP 4
+# define MOUSE_SCROLL_DOWN 5
+# define WIDTH 1280
+# define HEIGHT 720
 //# include <unistd.h>
 
-enum {
+enum
+{
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -45,7 +45,7 @@ typedef struct s_image
 	int		bpp;
 	int		sizeline;
 	int		endian;
-}	t_image;
+}			t_image;
 
 typedef struct s_vars
 {
@@ -67,36 +67,36 @@ typedef struct s_vars
 	int		c2;
 	int		c3;
 	int		iteras;
-}				t_vars;
+}			t_vars;
 
-int		get_t(int trgb);
-int		get_r(int trgb);
-int		get_g(int trgb);
-int		get_b(int trgb);
-void	c_calc(t_vars *vars, int *x, int *y);
-int		create_trgb(int t, int r, int g, int b);
-int		quit(t_vars *vars); // delete?
-int	close_program(int key, t_vars *vars);
-void	black_screen(t_vars *vars);
-void	draw(t_vars *vars);
-void	draw2(t_vars *vars);
-int		f1(int i, t_vars *vars);
-int		f2(int i, t_vars *vars);
-int		move(int keycode, t_vars *vars);
-int		key(int keycode, t_vars *vars);
-void	color_chng(t_vars *vars, int i);
-void	swap_int(int *i, int *j);
-void	colorful_fract(t_vars *vars);
-void	choose_draw(t_vars *vars);
-void	set_fract(char **str, t_vars *vars);
-void	draw(t_vars *vars);
-void	draw2(t_vars *vars);
-void	init__i(t_vars *vars);
-int		ft_strcmp(char *s1, char *s2);
-int		zoom(int keycode, int x, int y, t_vars *vars);
-void	put_pixel_in_img(t_vars *f, int x, int y, int color);
-void	init_img(t_vars *f);
-void	init_vars(t_vars *vars);
-int		func(t_vars *vars);
+int			get_t(int trgb);
+int			get_r(int trgb);
+int			get_g(int trgb);
+int			get_b(int trgb);
+void		c_calc(t_vars *vars, int *x, int *y);
+int			create_trgb(int t, int r, int g, int b);
+int			quit(t_vars *vars);
+int			close_program(int key, t_vars *vars);
+void		black_screen(t_vars *vars);
+void		draw_julia(t_vars *vars);
+void		draw_mandel(t_vars *vars);
+int			f1(int i, t_vars *vars);
+int			f2(int i, t_vars *vars);
+int			move(int keycode, t_vars *vars);
+int			key(int keycode, t_vars *vars);
+void		color_change(t_vars *vars, int i);
+void		swap_int(int *i, int *j);
+void		colorful_fract(t_vars *vars);
+void		choose_draw(t_vars *vars);
+void		set_fract(char **str, t_vars *vars);
+// void		draw(t_vars *vars);
+// void		draw_mandel(t_vars *vars);
+void		init__i(t_vars *vars);
+int			ft_strcmp(char *s1, char *s2);
+int			zoom(int keycode, int x, int y, t_vars *vars);
+void		put_pixel_in_img(t_vars *f, int x, int y, int color);
+void		init_img(t_vars *f);
+void		init_vars(t_vars *vars);
+int			func(t_vars *vars);
 
 #endif

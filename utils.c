@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:50 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/18 20:16:27 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:16:20 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap_int(int *i, int *j)
 	*j = tmp;
 }
 
-int	quit(int keycode, t_vars *vars)
+int	quit(t_vars *vars)
 {
 	write(1, "[Mandelbort],[Julia]\n", 21);
 	exit(0);
@@ -35,19 +35,17 @@ int	close_program(int key, t_vars *vars) //don't forget to repair this function
 		exit(0);
 	}
 	else if (key == 15 || key == 257)
-	{
-		draw(vars); // change this
-		write(1, "r", 1);
-	}
+		choose_draw(vars); //needs to be repaired
+
 	return (0);
 }
 
 void	choose_draw(t_vars *vars)
 {
 	if (vars->fig == 'J')
-		draw(vars);
+		draw_julia(vars);
 	else
-		draw2(vars);
+		draw_mandel(vars);
 }
 
 void	set_fract(char **str, t_vars *vars)
@@ -57,11 +55,11 @@ void	set_fract(char **str, t_vars *vars)
 		vars->selected_r = vars->julia_r[0];
 		vars->selected_i = vars->julia_i[0];
 		vars->fig = 'J';
-		draw(vars);
+		draw_julia(vars);
 	}
 	else if (ft_strncmp(str[1], "Mandelbrot", 11) == 0)
 	{
 		vars->fig = 'M';
-		draw2(vars);
+		draw_mandel(vars);
 	}
 }

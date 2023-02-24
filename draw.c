@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:23 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/08 15:15:23 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:18:11 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	c_calc(t_vars *vars, int *x, int *y)
 	vars->x_val = 0;
 }
 
-void	draw2(t_vars *vars)
+void	draw_mandel(t_vars *vars)
 {
 	int	x;
 	int	y;
@@ -56,7 +56,7 @@ void	draw2(t_vars *vars)
 		{
 			c_calc(vars, &x, &y);
 			i = func(vars);
-			color_chng(vars, i);
+			color_change(vars, i);
 			if ((vars->x_val * vars->x_val + vars->y_val * vars->y_val) < 4)
 				put_pixel_in_img(vars, x, y, create_trgb(0, 0, 0, 0));
 			else
@@ -68,7 +68,7 @@ void	draw2(t_vars *vars)
 		0, 0);
 }
 
-void	draw(t_vars *f)
+void	draw_julia(t_vars *f)
 {
 	int	x;
 	int	y;
@@ -86,7 +86,7 @@ void	draw(t_vars *f)
 			f->x_val = ((x - WIDTH / 2.0) / f->zoom) + f->vertical_swift;
 			f->y_val = ((y - HEIGHT / 2.0) / f->zoom) + f->horizontal_swift;
 			i = func(f);
-			color_chng(f, i);
+			color_change(f, i);
 			if ((f->x_val * f->x_val + f->y_val * f->y_val) < 4)
 				put_pixel_in_img(f, x, y, create_trgb(0, 0, 0, 0));
 			else
