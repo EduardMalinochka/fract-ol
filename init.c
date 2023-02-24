@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:38 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 13:07:26 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:28:18 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,18 @@ void	julia_complex_list(t_vars *vars)
 	vars->julia_i[8] = -0.650752;
 }
 
-void	init_img(t_vars *f)
+void	init_img(t_vars *vars)
 {
-	int		bpp;
-	int		sizeline;
-	int		endian;
+	int	bpp;
+	int	sizeline;
+	int	endian;
 
-	f->img.image = mlx_new_image(f->img.mlx, WIDTH, HEIGHT);
-	f->img.data = mlx_get_data_addr(f->img.image, &bpp, &sizeline, &endian);
-	f->img.bpp = bpp;
-	f->img.sizeline = sizeline;
-	f->img.endian = endian;
+	vars->img.image = mlx_new_image(vars->img.mlx, WIDTH, HEIGHT);
+	vars->img.data = mlx_get_data_addr(vars->img.image, &bpp, &sizeline,
+			&endian);
+	vars->img.bpp = bpp;
+	vars->img.sizeline = sizeline;
+	vars->img.endian = endian;
 }
 
 void	init_vars(t_vars *vars)
@@ -57,14 +58,13 @@ void	init_vars(t_vars *vars)
 	vars->horizontal_swift = 0;
 	vars->zoom = 300.0;
 	vars->color = 0;
-	vars->iteras = 90;
 	vars->img.mlx = mlx_init();
 	vars->img.win = mlx_new_window(vars->img.mlx, WIDTH, HEIGHT, "Fract-ol");
 	init_img(vars);
 	julia_complex_list(vars);
 }
 
-void reinit_vars(t_vars *vars)
+void	reinit_vars(t_vars *vars)
 {
 	{
 		vars->x_val = 0;
@@ -74,6 +74,6 @@ void reinit_vars(t_vars *vars)
 		vars->vertical_swift = 0;
 		vars->horizontal_swift = 0;
 		vars->zoom = 300.0;
-		choose_draw(vars); //needs to be repaired
+		choose_frac(vars);
 	}
 }

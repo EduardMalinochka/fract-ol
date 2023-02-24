@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:23 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 12:34:00 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:25:59 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	func(t_vars *vars)
 	double	temp;
 
 	i = 0;
-	while (i < vars->iteras && vars->x_val * vars->x_val + vars->y_val
+	while (i < MAX_ITER && vars->x_val * vars->x_val + vars->y_val
 		* vars->y_val < 4)
 	{
 		temp = vars->x_val;
@@ -68,7 +68,7 @@ void	draw_mandel(t_vars *vars)
 		0, 0);
 }
 
-void	draw_julia(t_vars *vars)
+void	draw_julia(t_vars *v)
 {
 	int	x;
 	int	y;
@@ -77,23 +77,23 @@ void	draw_julia(t_vars *vars)
 	x = -1;
 	y = -1;
 	i = 0;
-	black_screen(vars);
+	black_screen(v);
 	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 		{
-			vars->x_val = ((x - WIDTH / 2.0) / vars->zoom) + vars->vertical_swift;
-			vars->y_val = ((y - HEIGHT / 2.0) / vars->zoom) + vars->horizontal_swift;
-			i = func(vars);
-			color_change(vars, i);
-			if ((vars->x_val * vars->x_val + vars->y_val * vars->y_val) < 4)
-				put_pixel_in_img(vars, x, y, create_trgb(0, 0, 0, 0));
+			v->x_val = ((x - WIDTH / 2.0) / v->zoom) + v->vertical_swift;
+			v->y_val = ((y - HEIGHT / 2.0) / v->zoom) + v->horizontal_swift;
+			i = func(v);
+			color_change(v, i);
+			if ((v->x_val * v->x_val + v->y_val * v->y_val) < 4)
+				put_pixel_in_img(v, x, y, create_trgb(0, 0, 0, 0));
 			else
-				put_pixel_in_img(vars, x, y, create_trgb(0, vars->c1, vars->c2, vars->c3));
+				put_pixel_in_img(v, x, y, create_trgb(0, v->c1, v->c2, v->c3));
 		}
 	}
-	mlx_put_image_to_window(vars->img.mlx, vars->img.win, vars->img.image, 0, 0);
+	mlx_put_image_to_window(v->img.mlx, v->img.win, v->img.image, 0, 0);
 }
 
 void	black_screen(t_vars *vars)

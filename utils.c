@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:50 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 13:52:57 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:33:34 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,25 @@ void	swap_int(int *i, int *j)
 int	quit(t_vars *vars)
 {
 	ft_putendl_fd("Availiable fractals are:", 1);
+	write(1, "\n", 1);
 	ft_putendl_fd("Julia or Mandelbrot", 1);
+	write(1, "\n", 1);
 	ft_putendl_fd("Make sure you've typed correctly", 1);
-	ft_putendl_fd("You zoom with the mouse, move with the arrows", 1);
-	ft_putendl_fd("C button allows you shift the color", 1);
+	write(1, "\n", 1);
+	ft_putendl_fd("Zoom with the mouse, move with the arrows", 1);
+	write(1, "\n", 1);
+	ft_putendl_fd("C button allows you to shift the colors", 1);
+	write(1, "\n", 1);
 	ft_putendl_fd("R button will restore you to the starting point", 1);
+	write(1, "\n", 1);
 	ft_putendl_fd("You can switch between Julia Sets via A and D buttons", 1);
+	write(1, "\n", 1);
 	ft_putendl_fd("Press ESC to quit", 1);
 	exit(0);
 	return (0);
 }
 
-int	close_program(int key, t_vars *vars) //don't forget to repair this function
+int	close_program(int key, t_vars *vars)
 {
 	if (key == 53)
 	{
@@ -45,7 +52,7 @@ int	close_program(int key, t_vars *vars) //don't forget to repair this function
 	return (0);
 }
 
-void	choose_draw(t_vars *vars)
+void	choose_frac(t_vars *vars)
 {
 	if (vars->fig == 'J')
 		draw_julia(vars);

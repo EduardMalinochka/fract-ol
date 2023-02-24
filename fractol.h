@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:35 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 13:43:47 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:27:46 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define MOUSE_SCROLL_UP 4
-# define MOUSE_SCROLL_DOWN 5
 # define WIDTH 1280
 # define HEIGHT 720
+# define MAX_ITER 100
 
 typedef struct s_image
 {
@@ -54,7 +53,6 @@ typedef struct s_vars
 	int		c1;
 	int		c2;
 	int		c3;
-	int		iteras;
 }			t_vars;
 
 int			get_t(int trgb);
@@ -66,22 +64,22 @@ int			create_trgb(int t, int r, int g, int b);
 int			quit(t_vars *vars);
 int			close_program(int key, t_vars *vars);
 void		black_screen(t_vars *vars);
-void		draw_julia(t_vars *vars);
+void		draw_julia(t_vars *v);
 void		draw_mandel(t_vars *vars);
-int			f1(int i, t_vars *vars);
-int			f2(int i, t_vars *vars);
+int			f1(int i);
+int			f2(int i);
 void		move(int keycode, t_vars *vars);
 int			key(int keycode, t_vars *vars);
 void		color_change(t_vars *vars, int i);
 void		swap_int(int *i, int *j);
 void		colorful_fract(t_vars *vars);
-void		choose_draw(t_vars *vars);
+void		choose_frac(t_vars *vars);
 void		set_fract(char **str, t_vars *vars);
 void		init__i(t_vars *vars);
 int			ft_strcmp(char *s1, char *s2);
 int			zoom(int keycode, int x, int y, t_vars *vars);
 void		put_pixel_in_img(t_vars *f, int x, int y, int color);
-void		init_img(t_vars *f);
+void		init_img(t_vars *vars);
 void		init_vars(t_vars *vars);
 void		reinit_vars(t_vars *vars);
 void		julia_swap(int keycode, t_vars *vars);
