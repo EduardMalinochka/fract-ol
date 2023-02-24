@@ -1,4 +1,4 @@
-SRCS = main.c init.c utils.c draw.c color.c key.c
+SRCS = main.c init.c utils.c draw.c color.c interaction.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 MFLAGS = ./mlxlib/libmlx.a libft/libft.a
