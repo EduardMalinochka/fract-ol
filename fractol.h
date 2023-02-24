@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:35 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 12:33:22 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:34:54 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@
 # define MOUSE_SCROLL_DOWN 5
 # define WIDTH 1280
 # define HEIGHT 720
-//# include <unistd.h>
-
-enum
-{
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
-	ON_DESTROY = 17
-};
 
 typedef struct s_image
 {
@@ -95,6 +83,8 @@ int			zoom(int keycode, int x, int y, t_vars *vars);
 void		put_pixel_in_img(t_vars *f, int x, int y, int color);
 void		init_img(t_vars *f);
 void		init_vars(t_vars *vars);
+void		reinit_vars(t_vars *vars);
+void		julia_swap(int keycode, t_vars *vars);
 int			func(t_vars *vars);
 
 #endif

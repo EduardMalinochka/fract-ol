@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:38 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 12:29:15 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:07:26 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,18 @@ void	init_vars(t_vars *vars)
 	vars->img.win = mlx_new_window(vars->img.mlx, WIDTH, HEIGHT, "Fract-ol");
 	init_img(vars);
 	julia_complex_list(vars);
+}
+
+void reinit_vars(t_vars *vars)
+{
+	{
+		vars->x_val = 0;
+		vars->y_val = 0;
+		vars->x = 0;
+		vars->y = 0;
+		vars->vertical_swift = 0;
+		vars->horizontal_swift = 0;
+		vars->zoom = 300.0;
+		choose_draw(vars); //needs to be repaired
+	}
 }

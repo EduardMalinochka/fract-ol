@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:50 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 12:16:20 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:03:05 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	quit(t_vars *vars)
 	exit(0);
 	return (0);
 }
+
 int	close_program(int key, t_vars *vars) //don't forget to repair this function
 {
 	if (key == 53)
@@ -34,9 +35,6 @@ int	close_program(int key, t_vars *vars) //don't forget to repair this function
 		mlx_destroy_window(vars->img.mlx, vars->img.win);
 		exit(0);
 	}
-	else if (key == 15 || key == 257)
-		choose_draw(vars); //needs to be repaired
-
 	return (0);
 }
 
