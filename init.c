@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:38 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 15:28:18 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:11:34 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,13 @@ void	reinit_vars(t_vars *vars)
 		vars->zoom = 300.0;
 		choose_frac(vars);
 	}
+}
+
+void	mandel_complex(t_vars *vars, int *x, int *y)
+{
+	vars->selected_r = ((*x - WIDTH / 2.0) / vars->zoom) + vars->vertical_swift;
+	vars->selected_i = ((*y - HEIGHT / 2.0) / vars->zoom)
+		+ vars->horizontal_swift;
+	vars->y_val = 0;
+	vars->x_val = 0;
 }

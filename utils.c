@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:50 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 15:33:34 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:48:38 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	quit(t_vars *vars)
 	write(1, "\n", 1);
 	ft_putendl_fd("C button allows you to shift the colors", 1);
 	write(1, "\n", 1);
-	ft_putendl_fd("R button will restore you to the starting point", 1);
+	ft_putendl_fd("R button will reverse the zoom to init point", 1);
 	write(1, "\n", 1);
 	ft_putendl_fd("You can switch between Julia Sets via A and D buttons", 1);
 	write(1, "\n", 1);
@@ -56,22 +56,22 @@ void	choose_frac(t_vars *vars)
 {
 	if (vars->fig == 'J')
 		draw_julia(vars);
-	else
+	else if (vars->fig == 'M')
 		draw_mandel(vars);
+	else
+		draw_brain_ship(vars);
 }
 
-void	set_fract(char **str, t_vars *vars)
+void	black_screen(t_vars *vars)
 {
-	if (ft_strncmp(str[1], "Julia", 6) == 0)
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < WIDTH)
 	{
-		vars->selected_r = vars->julia_r[0];
-		vars->selected_i = vars->julia_i[0];
-		vars->fig = 'J';
-		draw_julia(vars);
-	}
-	else if (ft_strncmp(str[1], "Mandelbrot", 11) == 0)
-	{
-		vars->fig = 'M';
-		draw_mandel(vars);
+		j = -1;
+		while (++j < HEIGHT)
+			put_pixel_in_img(vars, i, j, 0X000000);
 	}
 }

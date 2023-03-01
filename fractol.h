@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:35 by elukutin          #+#    #+#             */
-/*   Updated: 2023/02/24 15:27:46 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:48:38 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 # define WIDTH 1280
 # define HEIGHT 720
-# define MAX_ITER 100
+# define MAX_ITER 200
 
 typedef struct s_image
 {
@@ -59,7 +59,7 @@ int			get_t(int trgb);
 int			get_r(int trgb);
 int			get_g(int trgb);
 int			get_b(int trgb);
-void		c_calc(t_vars *vars, int *x, int *y);
+void		mandel_complex(t_vars *vars, int *x, int *y);
 int			create_trgb(int t, int r, int g, int b);
 int			quit(t_vars *vars);
 int			close_program(int key, t_vars *vars);
@@ -83,6 +83,8 @@ void		init_img(t_vars *vars);
 void		init_vars(t_vars *vars);
 void		reinit_vars(t_vars *vars);
 void		julia_swap(int keycode, t_vars *vars);
-int			func(t_vars *vars);
+int			iterative(t_vars *vars);
+void		draw_brain_ship(t_vars *v);
+int			func_brain_ship(t_vars *vars, int x, int y);
 
 #endif
