@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:14:50 by elukutin          #+#    #+#             */
-/*   Updated: 2023/03/01 14:48:38 by elukutin         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:55:30 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	quit(t_vars *vars)
 {
 	ft_putendl_fd("Availiable fractals are:", 1);
 	write(1, "\n", 1);
-	ft_putendl_fd("Julia or Mandelbrot", 1);
+	ft_putendl_fd("Julia/Mandelbrot/Brain", 1);
 	write(1, "\n", 1);
 	ft_putendl_fd("Make sure you've typed correctly", 1);
 	write(1, "\n", 1);
