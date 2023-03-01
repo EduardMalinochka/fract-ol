@@ -9,6 +9,7 @@ NAME = fractol
 all :$(MFLAGS) $(NAME)
 
 $(MFLAGS):
+	make -C libft
 	make -C ./mlxlib
 
 $(NAME): $(OBJS)
@@ -18,7 +19,8 @@ fclean : clean
 	$(RM) $(NAME)
 
 clean :
-	make clean -C ./mlxlib
+	make clean -C ./mlxlib	
+	make clean -C libft
 	$(RM) ./*.o
 
 re : fclean all
